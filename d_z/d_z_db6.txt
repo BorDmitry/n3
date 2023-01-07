@@ -1,0 +1,116 @@
+--№7
+
+--SELECT SUM(cg.CostUnit * cg.Count) AS [Сумма продаж магазинам]
+--FROM Client c, ClientGoods cg
+--WHERE c.INNClient = cg.INNClient AND c.Status = "магазин";
+
+--№8
+
+SELECT COUNT(Goods) AS [Кол-во закуп. видов вафель]
+FROM SallerGoods
+WHERE Goods LIKE 'Вафли%';
+
+--№9
+
+--SELECT AVG(CostUnit) AS [Средняя цена растительного масла]
+--FROM SallerGoods
+--WHERE Goods LIKE 'масло%' AND Goods NOT LIKE '%сливочное%';
+
+--№10
+
+SELECT SUM(cg.Count) AS [Кол-во всего прод. яблок]
+FROM ClientGoods cg, SallerGoods sg
+WHERE sg.Goods LIKE 'Яблоки%';
+
+--№11
+
+--SELECT SUM(sg.Count) AS [Кол-во картофеля --> кафе]
+--FROM Client c, ClientGoods cg, SallerGoods sg
+--WHERE c.INNClient=cg.INNClient AND cg.ID=sg.ID AND sg.Goods LIKE 'Картофель%' AND c.Status = 'кафе';
+
+--№12
+
+SELECT COUNT(c.Client) AS [Кол-во клиентов (Перец черный молотый)]
+FROM Client c, ClientGoods cg, SallerGoods sg
+WHERE c.INNClient = cg.INNClient AND cg.ID = sg.ID AND sg.Goods LIKE 'Перец черный молотый';
+
+--13
+
+SELECT COUNT(sg.Goods) AS [Кол-во наименований товаров от посредников:]
+FROM SallerGoods sg,Seller s
+WHERE sg.INNSeller=s.INNSeller AND s.Status= 'посредник';
+
+
+--№14
+
+SELECT MIN(CostUnit) AS [Минимальная цена проданного товара]
+FROM ClientGoods;
+
+--№15
+
+SELECT MIN(CostUnit*Count) AS [Минимальная сумма закупки]
+FROM SallerGoods;
+
+--№16
+
+SELECT MAX(cg.CostUnit*cg.Count) AS [Максимальная сумма товара, пр-го магазинам]
+FROM ClientGoods cg, Client c
+WHERE c.Status= 'магазин' AND c.INNClient=cg.INNClient;
+
+--№17
+
+SELECT COUNT(Seller) AS [Количество фирм]
+FROM Seller;
+
+--№18
+
+SELECT MIN(sg.CostUnit*sg.Count) AS [Минимальная сумма сделки с производителем]
+FROM  SallerGoods sg, Seller s
+WHERE sg.INNSeller=s.INNSeller AND s.Status='производитель';
+
+--№19
+
+SELECT AVG(CostUnit) AS [Средняя закупочная цена пачки чая :]
+FROM SallerGoods 
+WHERE Goods LIKE 'Чай%';
+
+--№20
+
+SELECT MAX(cg.CostUnit*cg.Count - sg.CostUnit*cg.Count) AS [Максиимальная прибыль за товар , проданный посреднику]
+FROM Client c, ClientGoods cg, SallerGoods sg
+WHERE c.INNClient = cg.INNClient AND cg.ID = sg.ID AND c.Status = 'посредник';
+
+--№21
+
+SELECT Min(cg.CostUnit*cg.Count - sg.CostUnit*cg.Count) AS [Минимальная прибыль за товар от посредника]
+FROM ClientGoods cg, SallerGoods sg, Seller s
+WHERE cg.ID = sg.ID AND sg.INNSeller = s.INNSeller AND s.Status = 'посредник';
+
+
+--№22
+
+SELECT COUNT(ID) AS [Кол-во наименований купленного товара у нас:]
+FROM ClientGoods;
+
+--№23
+
+SELECT COUNT(Goods) AS [Количество видов печенья]
+FROM SallerGoods
+WHERE Goods LIKE 'Печенье%';
+
+--24
+
+SELECT MAX(CostUnit*Count) AS [Максимальная сумма покупки клиента]
+FROM ClientGoods;
+
+--25
+
+SELECT AVG(cg.CostUnit*cg.Count - sg.CostUnit*cg.Count) AS [Средняя прибыль с масла:]
+FROM ClientGoods cg, SallerGoods sg
+WHERE cg.ID=sg.ID AND sg.Goods LIKE 'масло%';
+
+--26
+
+SELECT COUNT(Seller) AS [Кол-во посредников нашей фирмы:]
+FROM  Seller
+WHERE Status = 'посредник';
