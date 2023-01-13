@@ -1,9 +1,9 @@
 from faker import Faker
 
-from models.database import create_db, Session
-from models.person import Person
-from models.author import Author
-from models.group import Group
+from mod.database import create_db, Session
+from mod.person import Person
+from mod.author import Author
+from mod.group import Group
 
 
 def create_database(load_fake_data=True):
