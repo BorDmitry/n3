@@ -36,9 +36,9 @@ with sq.connect("aircraft.db") as con:
 
     # cur.execute("UPDATE aircraft SET year = :Year WHERE model LIKE 'Ñâ%'", {'Year': 1915})
 
-    # cur.executemany("INSERT INTO aircraft VALUES(NULL, ?, ?, ?)", avions)
+    # cur.executemany("INSERT INTO aircraft VALUES(NULL, ?, ?, ?)", models)
 
-    # for avion in avions:
+    # for avion in models:
     #     cur.execute("INSERT INTO aircraft VALUES(NULL, ?, ?, ?)", avion)
 
     # for aircr in aircraft:
