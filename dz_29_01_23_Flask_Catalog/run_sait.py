@@ -27,13 +27,13 @@ def create_db():
     db.close()
 
 
-menu = [
-    {"name": "Продажа/ Покупка автомобилей", "url": "index"},
-    {"name": "ПРОДАТЬ/ КУПИТЬ", "url": "sall"},
-    {"name": "АВТОСАЛОНЫ", "url": "salons"},
-    {"name": "АВТОСЕРВИСЫ", "url": "autoservis"},
-    {"name": "Контакты", "url": "contact"},
-]
+# menu = [
+#     {"name": "Продажа/ Покупка автомобилей", "url": "index"},
+#     {"name": "ПРОДАТЬ/ КУПИТЬ", "url": "sall"},
+#     {"name": "АВТОСАЛОНЫ", "url": "salons"},
+#     {"name": "АВТОСЕРВИСЫ", "url": "autoservis"},
+#     {"name": "Контакты", "url": "contact"},
+# ]
 
 
 def get_db():                       # возвращает активное соединение с БД
@@ -55,8 +55,7 @@ def index():
 def auto():
     db = get_db()
     dbase = FDataBase(db)
-    return render_template("/auto.html", menu=dbase.get_menu(), posts=dbase.get_auto_anonce())
-
+    return render_template("/auto.html", title="Каталог автомобилей", menu=dbase.get_menu(), auto=dbase.get_auto_anonce())
 
 
 @app.route("/add_post", methods=["POST", "GET"])
@@ -83,8 +82,8 @@ def add_auto():
     dbase = FDataBase(db)
 
     if request.method == "POST":
-        if len(request.form['title']) > 2 and len(request.form['post']) > 10:
-            res = dbase.add_auto(request.form['title'], request.form['post'])
+        if len(request.form['name']) > 2 and len(request.form['post']) > 8:
+            res = dbase.add_auto(request.form['name'], request.form['post'])
             if not res:
                 flash("Ошибка добавления статьи", category="error")
             else:
@@ -92,7 +91,7 @@ def add_auto():
         else:
             flash("Ошибка добавления статьи", category="error")
 
-    return render_template("add_auto.html", menu=dbase.get_menu(), title="Добавить автомобиль")
+    return render_template("add_auto.html", menu=dbase.get_menu(), title="Добавить автомобиль в БД продаж")
 
 
 @app.route("/info")
@@ -118,14 +117,11 @@ def show_post(alias):
 def show_auto(alias):
     db = get_db()
     dbase = FDataBase(db)
-    title, post = dbase.get_post(alias)
+    title, post = dbase.get_auto(alias)
     if not title:
         abort(404)
 
     return render_template('auto.html', menu=dbase.get_menu(), title=title, post=post)
-
-
-
 
 # @app.route("/sall")
 # def sall():

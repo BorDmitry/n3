@@ -5,24 +5,20 @@
 
 {% block content %}
 {{ super() }}
-
- <h2 class="price">Pricing</h2>
-
-<div class="cont">
+<hr>
+<h2 class="price">Pricing</h2>
+<ul class="=cont">
     {% for a in auto %}
-    <div class="box" id="box1">
-        <a href="{{ url_for('show_auto', alias=p.url) }}">{{a.title}}</a>
-    </div>
-    <div class="box" id="box2">
-    <p class="annonce">{{a.text}}</p>
-    </div>
-    <div class="box" id="box3">
-        <input type="submit" value="Купить" id="but">
-    </div>
+
+        <li class="auto">
+            <p class="title">
+                <a href="">{{a.title}}</a>
+            </p>
+            <p class="annonce">{{a.text}}</p>
+            <input type="submit" value="Купить авто">
+        </li>
+
     {% endfor %}
-
-</div>
-
-
-{% endblock content %}
+</ul>
+{% endblock %}
 

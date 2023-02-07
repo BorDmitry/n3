@@ -48,7 +48,6 @@ class FDataBase:
         except sqlite3.Error as e:
             print("Ошибка добавления статьи в БД" + str(e))
             return False
-
         return True
 
     def get_posts_anonce(self):
@@ -74,6 +73,17 @@ class FDataBase:
     def get_post(self, alias):
         try:
             self.__cur.execute(f"SELECT title, text FROM posts WHERE url='{alias}' LIMIT 1")
+            res = self.__cur.fetchone()
+            if res:
+                return res
+        except sqlite3.Error as e:
+            print("Ошибка получения статьи из БД" + str(e))
+
+        return False, False
+
+    def get_auto(self, alias):
+        try:
+            self.__cur.execute(f"SELECT title, text FROM auto WHERE url='{alias}' LIMIT 1")
             res = self.__cur.fetchone()
             if res:
                 return res
