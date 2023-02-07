@@ -1,5 +1,5 @@
 body{
-    background: lightyellow;
+    background: blanchedalmond;
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -8,9 +8,9 @@ body{
     display: flex;
     justify-content: space-around;
     list-style: none;
-    background: orange;
+    background: rgb(173, 173, 237);
     padding: 20px;
-    margin-top: 0;
+    margin-top: 0
 }
 .container{
     max-width: 1200px;
@@ -20,9 +20,10 @@ body{
 }
 .flash{
     padding: 10px;
+    width: 250px;
 }
 .flash.success{
-    border: 1px solid #21DB56;
+    border: 1px solid  #21DB56;
     background: #AEFFC5;
 }
 .flash.error{
@@ -48,17 +49,49 @@ li>p, li div{
 p.title{
     margin: 0;
     font-weight: bold;
-    background: gold;
+    background: rgb(242, 198, 242);
 }
 p.title a{
     display: block
 }
 p.title:hover{
-    background: orange;
+    background: rgb(173, 173, 237);
 }
 .annonce{
     margin-top: -1px;
     background: #FFF;
     margin-bottom: 40PX;
 }
-
+.cont{
+    display: grid;
+    height: 50vh;
+    width: 250px;
+    grid-template-rows: 1fr 5fr 1fr;
+    background: #FFF;
+    font-size: 10px;
+    margin: 10px 10px;   
+}
+h2{
+  font-size: 2em; 
+}
+.price{
+    margin: 20px 500px 40px;
+}
+#box1{
+    height: 50px;
+    width: 250px;
+    background: rgb(124, 124, 246);
+}
+#but{
+    background: rgb(124, 124, 246);
+}
+.box{
+    justify-items: auto;
+    align-items: auto;
+    margin: auto;
+}
+#box2{
+    height: 200px;
+    width: 200px;
+    background: #c8f1d8;
+}

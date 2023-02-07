@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
+.center{
+    text-align: center;
+}
+.block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+.block div{
+    flex-basis: 24%;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+.text{
+    text-align: left;
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.head{
+    background: silver;
+}
