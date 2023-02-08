@@ -55,7 +55,8 @@ def index():
 def auto():
     db = get_db()
     dbase = FDataBase(db)
-    return render_template("/auto.html", title="Каталог автомобилей", menu=dbase.get_menu(), auto=dbase.get_auto_anonce())
+    return render_template("/auto.html", title="Каталог автомобилей", menu=dbase.get_menu(),
+                           auto=dbase.get_auto_anonce())
 
 
 @app.route("/add_post", methods=["POST", "GET"])
@@ -98,8 +99,8 @@ def add_auto():
 def info():
     db = get_db()
     dbase = FDataBase(db)
-    return render_template("/info.html", title="Информация", menu=dbase.get_menu(),
-                           posts=dbase.get_posts_anonce())
+    return render_template("/info.html", title="Информация", menu=dbase.get_menu())
+
 
 
 @app.route("/post/<alias>")
