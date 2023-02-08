@@ -7,18 +7,20 @@
 {{ super() }}
 <hr>
 <h2 class="price">Pricing</h2>
-<ul class="=cont">
     {% for a in auto %}
 
         <li class="auto">
-            <p class="title">
-                <a href="">{{a.title}}</a>
-            </p>
-            <p class="annonce">{{a.text}}</p>
-            <input type="submit" value="Купить авто">
+            <div class="box" id="grid">
+                <div class="box-title">
+                    <p>{{a.title}}</p>
+                </div>
+                <p class="annonce-auto">{{a.text}}</p>
+                <div class="bot">
+                <input type="submit" value="Купить авто" id="but">
+                </div>
+            </div>
         </li>
 
     {% endfor %}
-</ul>
 {% endblock %}
 
