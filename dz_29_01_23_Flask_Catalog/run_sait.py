@@ -102,7 +102,6 @@ def info():
     return render_template("/info.html", title="Информация", menu=dbase.get_menu())
 
 
-
 @app.route("/post/<alias>")
 def show_post(alias):
     db = get_db()

@@ -90,7 +90,7 @@ class FDataBase:
         except sqlite3.Error as e:
             print("Ошибка получения статьи из БД" + str(e))
 
-        return False, False
+    #     return False, False
 
 
 

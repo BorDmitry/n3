@@ -11,13 +11,13 @@
 
         <li class="auto">
             <div class="box" id="grid">
-                <div class="box-title">
-                    <p>{{a.title}}</p>
-                </div>
+
+                    <p class="title-auto">
+                        <a href="{{ url_for('show_auto', alias=a.url) }}">{{a.title}}</a>
+                    </p>
+
                 <p class="annonce-auto">{{a.text}}</p>
-                <div class="bot">
                 <input type="submit" value="Купить авто" id="but">
-                </div>
             </div>
         </li>
 

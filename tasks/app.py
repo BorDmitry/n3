@@ -19,27 +19,28 @@ class Todo(db.Model):
 @app.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == "POST":
-        task_content = request.form['content']
-        new_task = Todo(content=task_content)
-
+        task_content = request.form['content']  # перемюб куда мы будем сохр-ть данные( ключ 'content' из index.html
+        new_task = Todo(content=task_content)  # новая перюб кот будет экзю класса, именнованная перю content - это то,
+                                                    # что введёт пользователь в поле content класса Тодо
         try:
             db.session.add(new_task)
-            db.session.commit()
+            db.session.commit()  # данные записаллись в бд
             return redirect('/')
         except Exception as e:
             return f"Не удалось добавить вашу задачу {e}"
-    else:
-        tasks = Todo.query.order_by(Todo.date_created).all()
-        return render_template('index.html', tasks=tasks)
+    else:          # иначе - отрабатывает GET
+        tasks = Todo.query.order_by(Todo.date_created).all()  # достаём эти данные из базы, делаем сортировку
+        # по дате создания
+        return render_template('index.html', tasks=tasks)  # и передаём эту переменую на страничку html чезез имя tasks
 
 
 @app.route('/delete/<int:id>')
 def delete(id):
-    task_to_delete = Todo.query.get_or_404(id)
+    task_to_delete = Todo.query.get_or_404(id)  #Получить данные или вернуть страницу 404
 
     try:
-        db.session.delete(task_to_delete)
-        db.session.commit()
+        db.session.delete(task_to_delete) # удаляем методом delete из бд
+        db.session.commit()  #и фиксируем данные в таком состоянии
         return redirect("/")
     except Exception as e:
         return f" Не удалось удалить задачу {e}"
@@ -50,7 +51,8 @@ def update(id):
     task = Todo.query.get_or_404(id)
 
     if request.method == "POST":
-        task.content = request.form['content']
+        task.content = request.form['content']  # Переменной взятой из базы из поля content присваеваем введённое
+                                                # значение в форме ввода
 
         try:
             db.session.commit()
