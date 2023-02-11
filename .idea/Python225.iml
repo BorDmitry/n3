@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/first/password_generator_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/second/personal_partfolio" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/dz_28_01_23" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
