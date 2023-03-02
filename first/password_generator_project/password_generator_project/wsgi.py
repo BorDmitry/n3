@@ -1,5 +1,5 @@
 """
-WSGI config for password_generator_project project.
+WSGI config for password_generator_project s.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

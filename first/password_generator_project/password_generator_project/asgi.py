@@ -1,5 +1,5 @@
 """
-ASGI config for password_generator_project project.
+ASGI config for password_generator_project s.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

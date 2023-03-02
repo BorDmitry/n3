@@ -1,7 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,
+wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500
+;1,700;1,900&display=swap');
 
 body{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
     background: #CCCCFF;
@@ -19,7 +21,7 @@ body{
     margin-bottom: 60px;
 }
 .element, .count{
-    background: lightcyan;
+    background-color: lightyellow;
     /* flex-basis: 360px; */
     border: 6px solid#FFF;
     margin: 20px 0;
@@ -41,4 +43,54 @@ body{
     text-align: center;
     margin: 20px 0;
     font-size: 30px;
+}
+.img{
+    text-align: center;
+    margin-bottom: 60px;
+}
+.img img{
+    border: 6px solid #FFF;
+}
+.top{
+    background: #663366;
+    margin: 0;
+}
+.top a{
+    color: #FFF;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+}
+.block_text, .count{
+    padding: 20px;
+    box-sizing: border-box;
+}
+.detail{
+    background: #FFF;
+    padding: 20px 20px 60px;
+    box-sizing: border-box;
+}
+.menu{
+    background: lightyellow;
+    padding: 10px;
+    border-bottom: 6px solid #FFF;
+}
+.menu .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu ul{
+    display: flex;
+    list-style: none;
+    font-size: 20px;
+}
+.menu li{
+    margin-left: 40px;
+}
+.menu a{
+    color: #663366;
+    font-weight: bold;
+    text-decoration: none;
 }
